@@ -1,0 +1,67 @@
+---
+title: "LLM Settings (BYOK)"
+description: "Bring Your Own Key to use your own LLM provider instead of Duvefy's default."
+---
+
+## Overview
+
+By default, Duvefy uses its own OpenAI API credentials to power all agent conversations. Organizations on **Scale or Enterprise** plans can bring their own LLM API key (BYOK) to use a preferred provider or model, or to manage costs directly.
+
+Configure at **Settings → LLM**.
+
+---
+
+## Supported providers
+
+| Provider | Example models |
+|----------|---------------|
+| **OpenAI** | `gpt-4o`, `gpt-4o-mini`, `gpt-4-turbo` |
+| **Anthropic** | `claude-opus-4-6`, `claude-sonnet-4-6`, `claude-haiku-4-5` |
+| **Google** | `gemini-1.5-pro`, `gemini-1.5-flash` |
+
+---
+
+## Setting up BYOK
+
+<Steps>
+  <Step title="Go to Settings → LLM">
+    Click **Settings** in the sidebar, then **LLM**.
+  </Step>
+  <Step title="Select your provider">
+    Choose OpenAI, Anthropic, or Google from the provider dropdown.
+  </Step>
+  <Step title="Enter the model">
+    Type the model identifier (e.g., `gpt-4o`). This must match exactly the model name from your provider's documentation.
+  </Step>
+  <Step title="Paste your API key">
+    Paste your API key from the provider's dashboard.
+  </Step>
+  <Step title="Save">
+    Click **Save**. All subsequent agent conversations in your organization will use your key and model.
+  </Step>
+</Steps>
+
+---
+
+## Security
+
+- API keys are **write-only**: once saved, the full key is never shown again
+- Only the **last 6 characters** are displayed for identification (e.g., `••••••sk_3fG`)
+- To rotate your key, simply enter a new value and save
+- Keys are encrypted at rest using AES-256-GCM
+
+---
+
+## Reverting to platform default
+
+To stop using your own key and revert to Duvefy's default:
+1. Go to **Settings → LLM**
+2. Click **Remove custom LLM key** (or clear the key field and save)
+
+All agent conversations will immediately switch back to the platform's default OpenAI key.
+
+---
+
+## Plan requirement
+
+BYOK requires a **Scale or Enterprise** subscription. Organizations on Starter or Growth plans will see an upgrade prompt in the LLM settings page.

@@ -1,0 +1,79 @@
+---
+title: "Roles & Permissions"
+description: "Understand what each team role can and cannot do in Duvefy."
+---
+
+## Overview
+
+Every user in an organization has one of three roles: **Owner**, **Admin**, or **Member**. Roles control what a user can see and do across the platform.
+
+---
+
+## Role comparison
+
+| Permission | Owner | Admin | Member |
+|-----------|:-----:|:-----:|:------:|
+| View conversations & analytics | Yes | Yes | Yes |
+| View agents | Yes | Yes | Yes |
+| Create / edit / delete agents | Yes | Yes | — |
+| Configure knowledge base | Yes | Yes | — |
+| Configure CRM integrations | Yes | Yes | — |
+| Configure Stripe payments | Yes | Yes | — |
+| Configure LLM (BYOK) | Yes | Yes | — |
+| Configure SMTP settings | Yes | Yes | — |
+| Invite new **members** | Yes | Yes | — |
+| Remove members | Yes | Yes | — |
+| Invite new **admins** | Yes | — | — |
+| Change a member's role to Admin | Yes | — | — |
+| Remove admins | Yes | — | — |
+| View audit logs | Yes | Yes | — |
+
+---
+
+## Owner
+
+The organization owner is the primary account holder, typically the first person invited when the organization was created.
+
+Owners have full control over everything, including the ability to promote members to admin and demote admins back to members. Only one active owner exists per organization at a time.
+
+<Note>
+  Ownership can be transferred by Duvefy's operations team if needed.
+</Note>
+
+---
+
+## Admin
+
+Admins are power users who can configure most of the platform. They can:
+- Create and manage agents and topics
+- Connect CRM and payment integrations
+- Set up LLM and SMTP settings
+- Invite and remove **members** (but not other admins)
+
+Admins cannot manage other admins or change the owner.
+
+---
+
+## Member
+
+Members have read-only access. They can:
+- View all conversations and message history
+- View analytics on the dashboard
+- View agents (but cannot edit them)
+
+Members cannot change any configuration.
+
+<Tip>
+  Members are ideal for customer success, sales, or support staff who need visibility into conversations without the ability to change agent behavior.
+</Tip>
+
+---
+
+## Changing roles
+
+Owners can change a user's role from **Settings → Team**:
+1. Find the team member in the list
+2. Click the role dropdown next to their name
+3. Select the new role and confirm
+
+Role changes take effect immediately.

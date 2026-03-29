@@ -1,0 +1,58 @@
+---
+title: "Organization Knowledge Base"
+description: "Manage shared knowledge that is available to all your agents."
+---
+
+## Overview
+
+The **Organization Knowledge Base** (org KB) is a shared set of content that any agent can optionally include. It's ideal for information that should be consistent across all your agents — company overview, policies, pricing, FAQs.
+
+Manage it at **Settings → Knowledge Base**.
+
+---
+
+## Org KB vs. Agent KB
+
+| | Org KB | Agent KB |
+|--|--------|---------|
+| **Managed at** | Settings → Knowledge Base | Agent edit page → Knowledge Base tab |
+| **Scope** | Shared across all agents | Specific to one agent |
+| **How to enable** | Toggle "Include org KB" on each agent | Always active for that agent |
+
+Use the org KB for company-wide content. Use agent KB for content specific to that agent's purpose.
+
+---
+
+## Adding content
+
+The same four content types are available as in the agent KB:
+
+- **Free text** — Paste content directly
+- **URLs** — Enter web page URLs to fetch
+- **PDF upload** — Upload PDFs for automatic text extraction
+- **Sitemap crawl** — Provide a sitemap.xml to process your entire site
+
+See [Agent Knowledge Base](/agents/knowledge-base) for detailed guidance on each source type.
+
+---
+
+## Jina AI API Key
+
+For large websites or frequent KB syncs, Duvefy uses Jina AI to fetch web content. The free tier allows 20 requests per minute.
+
+If you need higher throughput:
+1. Create a Jina AI account at [jina.ai](https://jina.ai)
+2. Generate an API key
+3. Enter it in **Settings → Knowledge Base → Jina AI API Key**
+
+With your own key, the paid Jina tier is used for all URL and sitemap fetches in your organization.
+
+---
+
+## Enabling org KB for an agent
+
+To include the org KB in a specific agent:
+1. Open the agent edit page
+2. Go to the **Knowledge Base** tab
+3. Toggle **Include organization knowledge base** to on
+4. Save changes

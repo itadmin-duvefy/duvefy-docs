@@ -1,0 +1,54 @@
+---
+title: "Integrations Overview"
+description: "Connect Duvefy to your CRM and payment systems to unlock powerful automated workflows."
+---
+
+## Available integrations
+
+<CardGroup cols={2}>
+  <Card title="Salesforce" icon="cloud" href="/integrations/salesforce">
+    Connect via OAuth. Create, update, and query Salesforce records. Also enables Salesforce Flows, Apex classes, and email via Salesforce.
+  </Card>
+  <Card title="HubSpot" icon="hubspot" href="/integrations/hubspot">
+    Connect via OAuth. Create, update, and query HubSpot contacts, deals, and companies.
+  </Card>
+  <Card title="Zoho CRM" icon="z" href="/integrations/zoho">
+    Connect via OAuth. Create, update, and query Zoho CRM records.
+  </Card>
+  <Card title="Stripe" icon="stripe" href="/integrations/stripe">
+    Configure your Stripe account to process payments mid-conversation via Checkout sessions.
+  </Card>
+</CardGroup>
+
+---
+
+## One CRM at a time
+
+Each organization can have **one active CRM integration** at a time (Salesforce, HubSpot, or Zoho). You can disconnect and reconnect a different CRM at any time.
+
+---
+
+## Where to manage integrations
+
+Go to **Settings → Integrations** in the dashboard.
+
+Each integration card shows its connection status and a **Connect** or **Disconnect** button.
+
+---
+
+## Security
+
+All CRM access tokens and refresh tokens are **encrypted at rest** using AES-256-GCM. Tokens are never exposed in the UI.
+
+The connect flow is protected against OAuth CSRF attacks using a one-time nonce cookie. The callback verifies the nonce before processing any tokens.
+
+---
+
+## Plan requirements
+
+| Integration | Minimum plan |
+|-------------|-------------|
+| Salesforce | Growth |
+| HubSpot | Growth |
+| Zoho CRM | Growth |
+| Stripe | All plans |

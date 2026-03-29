@@ -1,0 +1,114 @@
+---
+title: "Analytics Dashboard"
+description: "Track conversations, engagement, CRM actions, and payments from your Duvefy dashboard."
+---
+
+## Overview
+
+The dashboard is your organization's analytics hub. It gives you a real-time view of how your agents are performing — from message volumes to CRM record creation to payments processed.
+
+Access it from **Overview** in the left sidebar.
+
+---
+
+## Period filter
+
+All metrics (except "Messages This Month") respect the period filter at the top of the page:
+
+| Option | What it covers |
+|--------|---------------|
+| **This Month** | Current calendar month to date |
+| **Last 90 Days** | Rolling 90-day window |
+| **Last 12 Months** | Rolling 12-month window |
+| **All Time** | Since the organization was created |
+
+---
+
+## KPI cards
+
+### Messages This Month
+Current month's message count versus your plan limit. Always shows the current billing period regardless of the period filter.
+
+A progress bar fills as you approach the limit. At **80% usage**, an upgrade prompt appears. At **100%**, the agent stops responding until the next period.
+
+### Conversations
+Total number of conversations started in the selected period, with a sub-count of **engaged conversations** — those where at least one action was successfully executed.
+
+Clicking the card takes you to the Conversations list.
+
+### Engagement Rate
+Percentage of conversations that resulted in at least one successful action. Calculated as:
+
+```
+engaged conversations / total conversations × 100%
+```
+
+A higher engagement rate means more visitors are completing workflows (donations, leads, etc.).
+
+### Payments Processed
+Total number of completed payments in the selected period. This card only appears when Stripe payment settings are configured.
+
+---
+
+## Topic Actions section
+
+A breakdown of executed topic actions by type for the selected period:
+
+| Action type | What it represents |
+|-------------|-------------------|
+| **Salesforce Flow** | Flows triggered via the Flow action |
+| **Apex Class** | Apex methods called |
+| **HTTP Request** | External HTTP endpoints called |
+| **Send Email** | Emails sent via topic actions |
+
+Each row includes an inline proportional bar and a count. The total across all types is shown as a badge.
+
+---
+
+## CRM Actions section
+
+Only shown when a CRM integration is connected. Breaks down CRM operations:
+
+| Operation | Description |
+|-----------|-------------|
+| **Create Record** | New CRM records created |
+| **Update Record** | Existing records updated |
+| **Query CRM** | Records looked up/searched |
+
+The header shows the name of the connected CRM (e.g., "HubSpot Actions").
+
+---
+
+## Monthly Trend Chart
+
+An interactive bar chart showing activity over time.
+
+**Range toggle:**
+- **Last 6 months** — monthly bars for the past 6 months
+- **Last 12 months** — monthly bars for the past 12 months
+
+**Metric toggle:**
+- **Conversations** — total conversations per month
+- **Messages** — total messages per month
+- **CRM Actions** — CRM operations per month (when CRM is connected)
+- **Topic Actions** — dynamic actions executed per month
+
+Switching metrics or range animates the chart without reloading the page.
+
+---
+
+## Team footer
+
+At the bottom of the dashboard, a footer shows your organization's team member count and your current role.
+
+---
+
+## Access by role
+
+| Role | Dashboard access |
+|------|----------------|
+| **Owner** | Full access |
+| **Admin** | Full access |
+| **Member** | Full access (read-only view) |
+
+All roles can view the analytics dashboard. Members cannot modify any settings from within the dashboard.

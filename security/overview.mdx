@@ -1,0 +1,86 @@
+---
+title: "Security Overview"
+description: "How Duvefy protects your data and your visitors' interactions."
+---
+
+## Encryption at rest
+
+All sensitive credentials stored in Duvefy are encrypted using **AES-256-GCM** before being written to the database:
+
+| Data | Encrypted |
+|------|:---------:|
+| Stripe secret key | Yes |
+| Stripe webhook secret | Yes |
+| CRM OAuth access token | Yes |
+| CRM OAuth refresh token | Yes |
+| LLM API key (BYOK) | Yes |
+| SMTP password | Yes |
+| Jina AI API key | Yes |
+
+Encryption keys are unique per environment — data encrypted in staging cannot be decrypted in production.
+
+---
+
+## Write-only secrets
+
+Sensitive API keys (LLM, Stripe) are **write-only** in the UI:
+- Once saved, the full key is never displayed again
+- Only the **last 6 characters** are shown for identification
+- To rotate a key, enter a new value and save
+
+---
+
+## OAuth security
+
+CRM integration flows (Salesforce, HubSpot, Zoho) are protected against **OAuth CSRF attacks** using a one-time nonce cookie:
+- The connect button generates a cryptographically random nonce and stores it in a short-lived cookie
+- The OAuth callback verifies the nonce before processing any tokens
+- An invalid or missing nonce causes the flow to abort
+
+---
+
+## Rate limiting
+
+The chat endpoint is rate-limited at **60 messages per minute per IP address**. This prevents abuse and protects your monthly message quota.
+
+In addition, each organization has a **monthly message quota** enforced at the database level. When the quota is reached, the agent responds with a polite "unable to respond" message — it does not break.
+
+---
+
+## SSRF protection
+
+All server-side URL fetches (knowledge base URLs, sitemap crawls, HTTP request actions) are validated before the request is made. URLs that resolve to:
+- `localhost`
+- Private IP ranges (RFC 1918: `10.x.x.x`, `172.16.x.x–172.31.x.x`, `192.168.x.x`)
+- Link-local addresses (`169.254.x.x`)
+
+...are **blocked** regardless of where the URL came from. This prevents Server-Side Request Forgery attacks where a malicious URL could be used to probe internal infrastructure.
+
+---
+
+## Input validation
+
+All text fields have **server-enforced maximum lengths**. Submissions exceeding the limit are rejected with a clear error message before any database operation takes place.
+
+---
+
+## Session security
+
+- Sessions are stored in **secure, HTTP-only cookies** — inaccessible to JavaScript
+- Sessions expire after inactivity
+- Signing out immediately invalidates the session server-side
+
+---
+
+## Audit trail
+
+Every sensitive admin operation is logged to an append-only audit log. See [Audit Logs](/security/audit-logs) for details.
+
+---
+
+## Widget security
+
+The chat widget is designed for safe embedding on any website:
+- CORS headers allow any domain to embed the widget
+- No authentication is required or passed from the widget to the visitor's browser
+- Visitor sessions are isolated per conversation

@@ -1,0 +1,62 @@
+---
+title: "Zoho CRM"
+description: "Connect Zoho CRM to create, update, and query records from agent topics."
+---
+
+## What Zoho CRM enables
+
+When connected, your agents can:
+- Create and update Leads, Contacts, Deals, and other Zoho modules
+- Query Zoho records to personalize conversations
+
+---
+
+## Connecting Zoho CRM
+
+<Steps>
+  <Step title="Go to Settings → Integrations">
+    In the sidebar, click **Settings**, then **Integrations**.
+  </Step>
+  <Step title="Click Connect Zoho">
+    Click the **Connect Zoho** button on the Zoho CRM card.
+  </Step>
+  <Step title="Authorize in Zoho">
+    You'll be redirected to Zoho's OAuth login page. Sign in with a Zoho CRM user that has API access.
+  </Step>
+  <Step title="Grant permissions">
+    Review and accept the requested permissions.
+  </Step>
+  <Step title="Return to Duvefy">
+    You'll be redirected back to the Integrations page with Zoho showing as connected.
+  </Step>
+</Steps>
+
+---
+
+## What topics can do with Zoho CRM
+
+| Operation | Topic instruction example |
+|-----------|--------------------------|
+| Create a Lead | "Create a new Lead in Zoho with the visitor's name and email." |
+| Update a Contact | "Update the Contact's status in Zoho." |
+| Query records | "Search Zoho for a Lead matching the visitor's email." |
+
+---
+
+## Disconnecting Zoho CRM
+
+<Steps>
+  <Step title="Go to Settings → Integrations">
+    Click **Settings** → **Integrations**.
+  </Step>
+  <Step title="Click Disconnect">
+    Click **Disconnect** on the Zoho CRM card.
+  </Step>
+  <Step title="Confirm">
+    A red confirmation panel appears inline. Click **Yes, disconnect** to confirm.
+  </Step>
+</Steps>
+
+<Warning>
+  Disconnecting removes stored tokens. Any topics relying on Zoho will fail until you reconnect.
+</Warning>

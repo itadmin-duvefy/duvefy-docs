@@ -1,0 +1,117 @@
+---
+title: "Writing Topic Instructions"
+description: "Learn how to write effective plain-English instructions that your agent executes reliably."
+---
+
+## The basics
+
+Topic instructions are written in plain English. There's no special syntax — just describe what you want the agent to do, step by step.
+
+The AI reads your instructions at runtime and decides which tools to call in what order.
+
+---
+
+## A simple example
+
+**Topic:** Process Donation
+
+**Instructions:**
+> Ask the user how much they would like to donate. Once they provide an amount, create a Stripe Checkout session for that amount and send them the payment link.
+
+The agent:
+1. Calls `ask_user` with "How much would you like to donate?"
+2. Waits for the visitor's response
+3. Calls `stripe_checkout` with the amount
+4. Returns the Stripe URL to the visitor via `end_topic`
+
+---
+
+## Best practices
+
+### Be explicit about each step
+Don't assume the AI will infer steps. Spell them out.
+
+**Less clear:**
+> Collect a donation from the user.
+
+**Better:**
+> First, ask the user for their name. Then ask how much they'd like to donate. Finally, create a Stripe Checkout session for that amount and send them the link.
+
+---
+
+### Use consistent names when referencing actions
+If you've configured a dynamic action (Scale+), reference it by its **exact action name** as configured in the action panel.
+
+**Example:**
+> Use the **Create Salesforce Opportunity** action to create a new opportunity with the lead's name and donation amount.
+
+---
+
+### Keep topics focused
+Each topic should do one thing well. Avoid combining multiple unrelated workflows in a single topic.
+
+**Good:** One topic to collect a donation, a separate topic to handle general questions.
+
+**Avoid:** One topic that tries to handle donations, answer FAQs, and schedule calls.
+
+---
+
+### Tell the agent what to do if something fails
+For actions that might fail (HTTP requests, CRM lookups), you can instruct the agent on the fallback behavior.
+
+**Example:**
+> Try to look up the contact in Salesforce using query_crm. If no record is found, ask the user for their email address and create a new lead.
+
+---
+
+## Referencing collected data
+
+When the agent collects data from a visitor (e.g., their name, donation amount), it keeps that in memory for the rest of the topic. You can reference it naturally in your instructions:
+
+> Ask the user for their first name and email. Then use create_crm_record to create a Lead in Salesforce with those details.
+
+The AI understands that "those details" refers to the name and email it just collected.
+
+---
+
+## Example instructions by use case
+
+### Donation processing
+```
+Ask the visitor how much they'd like to donate today.
+Once they provide an amount, ask if they'd prefer a one-time
+or monthly recurring donation.
+Then create a Stripe Checkout session for the specified amount
+and frequency, and share the payment link with them.
+End the topic by thanking them for their generosity.
+```
+
+### Lead qualification
+```
+Greet the visitor and ask what product they're interested in.
+Then ask for their name, email, and company.
+Create a CRM record as a new Lead with this information,
+setting the source to "Website Chat".
+End the topic by letting them know a team member will
+be in touch shortly.
+```
+
+### CRM lookup
+```
+Ask the visitor for their email address.
+Use query_crm to look up a Contact with that email.
+If found, greet them by name and summarize their account status.
+If not found, let them know you couldn't find their record
+and offer to connect them with support.
+```
+
+---
+
+## Testing your topics
+
+After saving a topic:
+1. Open your embedded widget (or use the preview)
+2. Start a conversation that should trigger the topic
+3. Confirm each step executes as expected
+
+If the agent skips a step or behaves unexpectedly, try making your instructions more explicit.

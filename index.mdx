@@ -1,62 +1,78 @@
 ---
 title: "Introduction"
-description: "Welcome to the new  home for your documentation"
+description: "Duvefy is a multi-tenant SaaS platform that lets organizations deploy AI-powered conversational agents on their websites."
 ---
 
-## Setting up
+## What is Duvefy?
 
-Get your documentation site up and running in minutes.
+Duvefy enables organizations to build and deploy AI chat agents that can engage website visitors, collect information, trigger CRM workflows, and process payments — all configured in plain English, no coding required.
 
-<Card title="Start here" icon="rocket" horizontal href="/quickstart">
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card title="Edit locally" icon="pen-to-square" href="/development">
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Get your first agent live in under 5 minutes.
   </Card>
-
-  <Card title="Customize your site" icon="palette" href="/essentials/settings">
-    Customize the design and colors of your site to match your brand.
+  <Card title="Platform Overview" icon="grid-2" href="/platform/overview">
+    Understand how organizations, agents, and topics fit together.
   </Card>
-
-  <Card title="Set up navigation" icon="map" href="/essentials/navigation">
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="Agents" icon="robot" href="/agents/overview">
+    Create and configure your AI agents.
   </Card>
-
-  <Card title="API documentation" icon="terminal" href="/api-reference/introduction">
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Topics" icon="bolt" href="/topics/overview">
+    Build agentic workflows triggered by conversation context.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## Key capabilities
 
-Everything you need to create world-class documentation.
-
-<Columns cols={2}>
-  <Card title="Write with MDX" icon="pen-fancy" href="/essentials/markdown">
-    Use MDX to style your docs pages.
+<CardGroup cols={3}>
+  <Card title="AI Agents" icon="comments">
+    Deploy conversational agents tailored to your brand, mission, and knowledge base.
   </Card>
-
-  <Card title="Code samples" icon="code" href="/essentials/code">
-    Add sample code to demonstrate how to use your product.
+  <Card title="Agentic Workflows" icon="diagram-project">
+    Write plain-English topic instructions and let the AI execute multi-step workflows automatically.
   </Card>
-
-  <Card title="Images" icon="image" href="/essentials/images">
-    Display images and other media.
+  <Card title="CRM Integration" icon="database">
+    Create, update, and query records in Salesforce, HubSpot, or Zoho directly from a conversation.
   </Card>
-
-  <Card title="Reusable snippets" icon="recycle" href="/essentials/reusable-snippets">
-    Write once and reuse across your docs.
+  <Card title="Payments" icon="credit-card">
+    Collect one-time or recurring payments via Stripe Checkout, triggered mid-conversation.
   </Card>
-</Columns>
+  <Card title="Knowledge Base" icon="book">
+    Feed your agent with text, URLs, PDFs, or an entire sitemap — always up to date.
+  </Card>
+  <Card title="Analytics" icon="chart-bar">
+    Track conversations, engagement, CRM actions, and payments from a single dashboard.
+  </Card>
+</CardGroup>
 
-## Need inspiration?
+## How the platform works
 
-<Card title="See complete examples" icon="stars" href="https://mintlify.com/customers">
-  Browse our showcase of exceptional documentation sites.
-</Card>
+<Steps>
+  <Step title="Your organization is created">
+    Duvefy sets up your organization, assigns a subscription plan, and sends an invitation to your owner email.
+  </Step>
+  <Step title="You build an agent">
+    Give your agent a name, mission, and knowledge base. Customize the widget colors and launcher icon.
+  </Step>
+  <Step title="You define topics">
+    Write plain-English workflows (topics) that the agent can trigger — from collecting a donation to creating a CRM record.
+  </Step>
+  <Step title="You embed the widget">
+    Copy a single `<script>` tag into your website. The agent is live instantly.
+  </Step>
+  <Step title="Visitors interact">
+    Your visitors chat with the agent. It executes workflows, syncs with your CRM, and processes payments — automatically.
+  </Step>
+</Steps>
+
+## Platform access
+
+<Note>
+  Duvefy is **invitation-only**. Organizations are created and managed by Duvefy's internal operations team. If you're expecting access, check your email for an invitation link.
+</Note>
+
+| Role | Access level |
+|------|-------------|
+| **Owner** | Full control over agents, settings, team, and integrations |
+| **Admin** | Create/edit agents and topics, manage integrations and payments |
+| **Member** | View conversations, leads, and analytics (read-only) |

@@ -1,0 +1,74 @@
+---
+title: "Platform Overview"
+description: "Understand the core concepts behind Duvefy: organizations, agents, and topics."
+---
+
+## Core concepts
+
+Duvefy is built around three primary concepts that work together to deliver AI-powered conversations on your website.
+
+<CardGroup cols={3}>
+  <Card title="Organizations" icon="building">
+    Your team's workspace. Contains all agents, settings, integrations, and conversation history.
+  </Card>
+  <Card title="Agents" icon="robot">
+    The AI assistants your visitors talk to. Each agent has its own knowledge base, personality, and set of workflows.
+  </Card>
+  <Card title="Topics" icon="bolt">
+    Named workflows an agent can execute — like collecting a donation, creating a CRM lead, or answering a specific type of question.
+  </Card>
+</CardGroup>
+
+---
+
+## How it all connects
+
+```
+Organization
+└── Agent (e.g. "Donations Assistant")
+    ├── Knowledge Base (text, URLs, PDFs, sitemap)
+    ├── Widget Styling (colors, icon, position)
+    ├── Topic: "Process Donation"
+    │   ├── Instructions (plain English)
+    │   └── Actions (Stripe, Salesforce Flow, HTTP...)
+    └── Topic: "Answer FAQ"
+        └── Instructions (plain English)
+```
+
+When a visitor starts chatting:
+1. The agent uses the **knowledge base** to answer general questions.
+2. When the conversation matches a **topic**, the agent triggers that workflow.
+3. The workflow can ask follow-up questions, create CRM records, or collect payment.
+
+---
+
+## Multi-agent support
+
+One organization can have multiple agents — each embedded on a different page or product. For example:
+- A **Donations Agent** on your fundraising page
+- A **Sales Agent** on your product landing page
+
+Each agent can have a different knowledge base, widget style, and set of topics.
+
+<Info>
+  The number of agents you can create depends on your subscription plan. See [Plans](/platform/plans).
+</Info>
+
+---
+
+## Organization knowledge base
+
+In addition to per-agent knowledge, you can maintain an **organization-level knowledge base** — shared information (company overview, policies, FAQs) that any agent can optionally include.
+
+To manage it: **Settings → Knowledge Base**.
+
+---
+
+## Invitation-only access
+
+Duvefy does not have a public sign-up page. Access is granted by invitation:
+- **New organizations** are created by Duvefy's internal team
+- **Team members** are invited by the org Owner or Admin
+- **Invitation emails** contain a one-time link to set a password and access the dashboard
+
+See [Team](/settings/team) for managing invitations.

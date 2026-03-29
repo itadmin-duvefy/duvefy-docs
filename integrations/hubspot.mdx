@@ -1,0 +1,67 @@
+---
+title: "HubSpot"
+description: "Connect your HubSpot portal to create, update, and query CRM records from agent topics."
+---
+
+## What HubSpot enables
+
+When connected, your agents can:
+- Create and update Contacts, Companies, and Deals
+- Query HubSpot records to personalize conversations
+- Send data into your HubSpot pipelines automatically
+
+---
+
+## Connecting HubSpot
+
+<Steps>
+  <Step title="Go to Settings → Integrations">
+    In the sidebar, click **Settings**, then **Integrations**.
+  </Step>
+  <Step title="Click Connect HubSpot">
+    Click the **Connect HubSpot** button on the HubSpot card.
+  </Step>
+  <Step title="Authorize in HubSpot">
+    You'll be redirected to HubSpot's OAuth authorization page. Sign in with a HubSpot user that has the required permissions.
+  </Step>
+  <Step title="Select your portal">
+    If you have multiple HubSpot portals, select the correct one.
+  </Step>
+  <Step title="Grant permissions">
+    Click **Connect app** to authorize Duvefy.
+  </Step>
+  <Step title="Return to Duvefy">
+    You'll be redirected back to the Integrations page with HubSpot showing as connected.
+  </Step>
+</Steps>
+
+---
+
+## What topics can do with HubSpot
+
+| Operation | Topic instruction example |
+|-----------|--------------------------|
+| Create a Contact | "Create a new Contact in HubSpot with the visitor's name and email." |
+| Create a Deal | "Create a new Deal in HubSpot linked to the visitor's contact." |
+| Update a Contact | "Update the Contact's lifecycle stage to 'Marketing Qualified Lead'." |
+| Query records | "Search HubSpot for a Contact with this email address." |
+
+---
+
+## Disconnecting HubSpot
+
+<Steps>
+  <Step title="Go to Settings → Integrations">
+    Click **Settings** → **Integrations**.
+  </Step>
+  <Step title="Click Disconnect">
+    Click **Disconnect** on the HubSpot card.
+  </Step>
+  <Step title="Confirm">
+    A red confirmation panel appears inline. Click **Yes, disconnect** to confirm.
+  </Step>
+</Steps>
+
+<Warning>
+  Disconnecting removes stored tokens. Any topics relying on HubSpot will fail until you reconnect.
+</Warning>

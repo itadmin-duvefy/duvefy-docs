@@ -1,0 +1,90 @@
+---
+title: "Embed the Widget"
+description: "Add the Duvefy chat widget to any website with a single line of code."
+---
+
+## Getting the embed code
+
+1. Open the agent you want to embed
+2. Click the **Embed** tab
+3. Click **Copy** to copy the script snippet
+
+---
+
+## Script embed (recommended)
+
+Paste the snippet before the closing `</body>` tag of any page where you want the widget to appear:
+
+```html
+<body>
+  <!-- your page content here -->
+
+  <script
+    src="https://app.duvefy.com/widget/YOUR_ORG_ID/embed.js"
+    async
+  ></script>
+</body>
+```
+
+The script loads the widget asynchronously — it won't block page rendering.
+
+<Tip>
+  The script reflects the current agent styling (icon and position). If you change the widget style, visitors see the update immediately after reloading the page — no need to update the script on your site.
+</Tip>
+
+---
+
+## iframe embed
+
+For more control over where and how the widget renders, use an `<iframe>` instead:
+
+```html
+<iframe
+  src="https://app.duvefy.com/widget/YOUR_ORG_ID"
+  width="400"
+  height="600"
+  frameborder="0"
+  style="border: none; border-radius: 12px;"
+></iframe>
+```
+
+Use the iframe when you want the chat to be inline (not a floating launcher button) or embedded in a specific container like a sidebar or dedicated chat page.
+
+---
+
+## Embedding on any domain
+
+Duvefy's widget is designed to work on any website with no additional configuration:
+- No domain allowlist required
+- CORS headers are fully open
+- Works in any modern browser
+
+---
+
+## Locating your Org ID
+
+Your **Org ID** is the UUID embedded in the widget URL. You can find it:
+- In the script/iframe URL on the **Embed** tab
+- In your browser address bar when logged in: `app.duvefy.com/dashboard` — the path after `/org/` if shown, or ask your Duvefy account manager
+
+---
+
+## Common embed locations
+
+| Platform | How to add |
+|----------|-----------|
+| **WordPress** | Add to theme's `footer.php`, or use a plugin like "Insert Headers and Footers" |
+| **Squarespace** | Settings → Advanced → Code Injection → Footer |
+| **Webflow** | Project Settings → Custom Code → Footer Code |
+| **Shopify** | Themes → Edit Code → `theme.liquid` before `</body>` |
+| **HTML site** | Directly before `</body>` in each page or layout file |
+
+---
+
+## Testing the embed
+
+After adding the script, reload your website. You should see the Duvefy launcher in the corner you configured. Click it and send a test message to confirm the agent is responding.
+
+<Note>
+  If the widget doesn't appear, verify the script tag is inside the `<body>` element and that the Org ID in the URL is correct.
+</Note>

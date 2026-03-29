@@ -1,0 +1,78 @@
+---
+title: "Topics Overview"
+description: "Topics are named workflows that your agent can trigger and execute during a conversation."
+---
+
+## What is a topic?
+
+A topic is a named workflow — like "Process Donation" or "Qualify Lead" — that your agent can automatically trigger when the conversation context calls for it.
+
+You write the instructions in plain English. The AI interprets them and executes the steps: asking follow-up questions, looking up CRM data, initiating payments, and more.
+
+---
+
+## How topics work
+
+When a visitor's message matches a topic (based on context and intent), the agent switches into that workflow and starts executing the instructions you wrote.
+
+For example, if a visitor says *"I'd like to make a donation"*, the agent might trigger a topic called **Process Donation** with instructions like:
+
+> "Ask the user how much they'd like to donate. Then create a Stripe Checkout session for that amount and share the link."
+
+The agent:
+1. Asks "How much would you like to donate?"
+2. Waits for the visitor's response
+3. Creates a Stripe checkout session
+4. Returns the payment link
+
+All of this happens automatically — you just write the instructions once.
+
+---
+
+## Topic fields
+
+| Field | Description |
+|-------|-------------|
+| **Label** | Human-readable name shown in the admin UI (e.g., "Process Donation") |
+| **Topic key** | Auto-generated identifier used internally (e.g., `process_donation`) |
+| **Instructions** | Plain-English description of what the agent should do |
+| **Enabled** | Toggle to activate or pause the topic |
+| **Sort order** | Priority when multiple topics might match a conversation |
+
+---
+
+## Execution and state persistence
+
+Topics execute through an agentic loop. If the topic pauses to ask the visitor a question, the agent saves its state automatically. When the visitor replies:
+- The topic **resumes exactly where it left off**
+- This works even if the visitor navigates away and returns later
+- State survives page refreshes
+
+---
+
+## What topics can do
+
+Topics have access to a set of built-in tools and (on Scale/Enterprise plans) configurable actions:
+
+<CardGroup cols={2}>
+  <Card title="Built-in tools" icon="wrench" href="/topics/built-in-tools">
+    Ask questions, create/update/query CRM records, trigger payments, and end the topic.
+  </Card>
+  <Card title="Dynamic actions" icon="bolt" href="/topics/dynamic-actions">
+    Scale+ only: Salesforce Flows, Apex classes, HTTP requests, and Send Email.
+  </Card>
+</CardGroup>
+
+---
+
+## Managing topics
+
+Topics are managed inside each agent:
+
+1. Open the agent edit page
+2. Click the **Topics** tab
+3. Click **Add Topic** to create a new one
+4. Fill in the label and instructions
+5. Toggle **Enabled** when ready
+
+You can reorder topics by dragging. Sort order affects which topic the agent prefers when multiple topics could match.

@@ -1,0 +1,137 @@
+---
+title: "Dynamic Actions"
+description: "Scale and Enterprise plans can configure custom actions inside topics — Salesforce Flows, Apex classes, HTTP requests, and email sending."
+---
+
+## Overview
+
+Dynamic actions extend what topics can do beyond the built-in tools. You configure each action once (with its connection details and input/output mappings), then reference it by name in your topic instructions.
+
+<Info>
+  Dynamic actions require a **Scale or Enterprise** subscription. Organizations on Starter or Growth see an upgrade prompt when attempting to create actions.
+</Info>
+
+---
+
+## Action types
+
+### Salesforce Flow
+
+Invokes a Salesforce **Autolaunched Flow** by its API name.
+
+**Requires:** A connected Salesforce integration
+
+**Configuration:**
+- Flow API name (e.g., `Create_Donation_Record`)
+- Input variables — what data to pass in (e.g., visitor's name, email, amount)
+- Output variables — what data to read back from the flow
+
+**In instructions:**
+> Use the **Create Donation Record** action to record the donation in Salesforce.
+
+---
+
+### Apex Class
+
+Calls a method on a **Salesforce Apex REST** class.
+
+**Requires:** A connected Salesforce integration
+
+**Configuration:**
+- Apex class name
+- Method name
+- HTTP method (GET, POST, etc.)
+- Input and output variable mappings
+
+**In instructions:**
+> Use the **Get Donor History** action to retrieve the visitor's past donations before responding.
+
+---
+
+### HTTP Request
+
+Calls any external HTTP endpoint. Use this to integrate with systems that don't have a native Duvefy integration.
+
+**Configuration:**
+- URL
+- HTTP method (GET, POST, PUT, PATCH, DELETE)
+- Auth header (optional, e.g., `Bearer {{token}}`)
+- Parameters:
+  - **Key-Value mode** — a table of params sent as query string (GET/DELETE) or JSON body (POST/PUT/PATCH)
+  - **Raw JSON mode** — a full JSON body template with `{{variable}}` placeholders that are resolved at runtime using data collected in the topic
+
+**In instructions:**
+> Use the **Register Event Signup** action to send the visitor's details to our events platform.
+
+---
+
+### Send Email
+
+Sends an email during topic execution. Supports two provider options:
+
+**Salesforce (when connected)**
+- Sends via Salesforce `SingleEmailMessage` API
+- Supports Salesforce email templates, merge fields, and activity logging
+- Can link the email to a Salesforce record (e.g., a Contact or Lead)
+
+**SMTP**
+- Sends via your organization's SMTP server (configured at Settings → Email / SMTP)
+- Supports free-form subject and body
+
+<Note>
+  Send Email via Salesforce requires a connected Salesforce integration. SMTP requires SMTP settings configured at Settings → SMTP. If neither is configured, a warning banner appears in the action config.
+</Note>
+
+---
+
+## Global actions (Action Library)
+
+Actions can be marked **Global**, which makes them available in the Agent's Action Library. Global actions can be **cloned** into any topic in the same agent.
+
+When you clone a library action into a topic:
+- The clone is independent — editing it doesn't affect the original
+- Each topic can have its own version of the action with different variable mappings
+
+---
+
+## Creating an action
+
+<Steps>
+  <Step title="Open the agent topic">
+    Navigate to the agent → Topics tab → select or create a topic.
+  </Step>
+  <Step title="Open the Actions panel">
+    Click the **Actions** tab inside the topic.
+  </Step>
+  <Step title="Add action">
+    Click **Add Action**, choose the action type, and fill in the configuration.
+  </Step>
+  <Step title="Save">
+    Click **Save**. The action is now available to the topic's AI execution loop.
+  </Step>
+</Steps>
+
+---
+
+## Referencing actions in instructions
+
+Use the exact **action name** you gave it in the configuration:
+
+> Use the **Create Opportunity** action to record this lead in Salesforce.
+
+The agent resolves this to the configured action at runtime.
+
+---
+
+## CRM requirements
+
+Some action types require a specific CRM to be connected. The defaults are:
+
+| Action type | Required CRM |
+|-------------|-------------|
+| Salesforce Flow | Salesforce |
+| Apex Class | Salesforce |
+| HTTP Request | None (available to all) |
+| Send Email | None (available to all) |
+
+These defaults can be adjusted by Duvefy's operations team via system settings.

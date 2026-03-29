@@ -1,0 +1,117 @@
+---
+title: "Built-in Tools"
+description: "Every topic has access to a set of built-in tools available on all plans."
+---
+
+## Overview
+
+Built-in tools are available to every topic on every plan. You don't configure them — just reference them naturally in your topic instructions and the agent calls them at the right time.
+
+---
+
+## ask_user
+
+**Purpose:** Pause the topic and ask the visitor a question. Resume when they respond.
+
+**When to use:** Whenever you need to collect information from the visitor.
+
+**How to reference in instructions:**
+> Ask the user for their name and email address.
+
+**Behavior:**
+- The agent sends the question as a chat message
+- Topic execution pauses, state is saved
+- When the visitor replies, the topic resumes with their answer available
+- This works across page refreshes — the topic picks up exactly where it left off
+
+---
+
+## create_crm_record
+
+**Purpose:** Create a new record in the connected CRM (Salesforce, HubSpot, or Zoho).
+
+**Requires:** A connected CRM integration ([see Integrations](/integrations/overview))
+
+**Available on:** Growth, Scale, Enterprise plans
+
+**How to reference in instructions:**
+> Create a new Lead in the CRM with the visitor's name and email.
+
+**What you can create:**
+- Leads / Contacts
+- Opportunities / Deals
+- Cases / Tickets
+- Other standard CRM objects
+
+The agent maps the data it has collected to the appropriate CRM fields automatically.
+
+---
+
+## update_crm_record
+
+**Purpose:** Update an existing record in the connected CRM.
+
+**Requires:** A connected CRM integration and a record ID (usually from a prior `query_crm` call)
+
+**How to reference in instructions:**
+> Look up the contact by email, then update their phone number with the one the visitor provided.
+
+---
+
+## query_crm
+
+**Purpose:** Search the CRM and retrieve matching records.
+
+**How to reference in instructions:**
+> Search the CRM for a Contact with the email the visitor provided. If found, greet them by name.
+
+**Returns:** Matching records (up to a configurable limit). The agent can use the results to personalize the conversation or make decisions.
+
+---
+
+## stripe_checkout
+
+**Purpose:** Create a Stripe Checkout session and return the payment URL.
+
+**Requires:** Stripe settings configured ([see Stripe Integration](/integrations/stripe))
+
+**How to reference in instructions:**
+> Once the visitor confirms the donation amount, create a Stripe Checkout session and share the payment link.
+
+**Parameters the agent uses:**
+- Amount (in the currency you configured)
+- Description (optional, e.g., "Monthly donation")
+
+**What happens after payment:**
+- Stripe sends a webhook to Duvefy
+- Any remaining topic steps (e.g., creating a CRM record) are executed automatically
+- The visitor sees a success or failure message
+
+---
+
+## end_topic
+
+**Purpose:** Send a final message to the visitor and close the topic.
+
+**How to reference in instructions:**
+> End the topic by thanking the visitor for their donation and letting them know they'll receive a receipt by email.
+
+Every topic should end with an `end_topic` call. If the instructions don't include one, the agent will still close the topic after the last step, but adding it explicitly lets you control the final message the visitor sees.
+
+---
+
+## Tool availability by plan
+
+| Tool | Starter | Growth | Scale | Enterprise |
+|------|:-------:|:------:|:-----:|:----------:|
+| ask_user | Yes | Yes | Yes | Yes |
+| create_crm_record | — | Yes | Yes | Yes |
+| update_crm_record | — | Yes | Yes | Yes |
+| query_crm | — | Yes | Yes | Yes |
+| stripe_checkout | Yes | Yes | Yes | Yes |
+| end_topic | Yes | Yes | Yes | Yes |
+| Dynamic actions | — | — | Yes | Yes |
+
+<Info>
+  CRM tools require a connected CRM integration. Stripe requires configured payment settings. See [Integrations](/integrations/overview).
+</Info>

@@ -1,0 +1,96 @@
+---
+title: "Stripe"
+description: "Configure Stripe to collect payments mid-conversation via Stripe Checkout."
+---
+
+## Overview
+
+Each organization configures its own Stripe account in Duvefy. When a topic triggers a payment, the visitor is redirected to a Stripe Checkout page hosted by Stripe. After payment succeeds, any remaining topic steps execute automatically.
+
+Stripe integration is available on all plans.
+
+---
+
+## Setting up Stripe
+
+Go to **Settings → Payment** to configure your Stripe account.
+
+### Required fields
+
+| Field | Description |
+|-------|-------------|
+| **Stripe Secret Key** | Your Stripe secret key (`sk_live_...` or `sk_test_...`) |
+| **Webhook Secret** | The webhook signing secret from your Stripe webhook endpoint |
+| **Minimum amount** | Minimum transaction amount in cents (e.g., `100` = $1.00) |
+| **Currency** | ISO currency code (e.g., `usd`, `eur`, `gbp`) |
+| **Success URL** | Where to redirect the visitor after a successful payment |
+| **Cancel URL** | Where to redirect if the visitor cancels payment |
+
+### Optional fields
+
+| Field | Description |
+|-------|-------------|
+| **Error URL** | Where to redirect on payment error |
+| **Recurring interval** | `monthly` or `yearly` — used when topics create recurring payments |
+
+---
+
+## Setting up the Stripe webhook
+
+Duvefy needs Stripe to notify it when a payment completes, so it can resume the topic.
+
+<Steps>
+  <Step title="Open Stripe Dashboard">
+    Go to your Stripe Dashboard → **Developers** → **Webhooks**.
+  </Step>
+  <Step title="Add endpoint">
+    Click **Add endpoint**. Enter the URL:
+    ```
+    https://app.duvefy.com/api/stripe/webhook/YOUR_ORG_ID
+    ```
+    Find your Org ID on the **Settings → Payment** page or in the embed script URL.
+  </Step>
+  <Step title="Select event">
+    Select the event: `checkout.session.completed`.
+  </Step>
+  <Step title="Copy the signing secret">
+    After creating the webhook, copy the **Signing secret** (`whsec_...`).
+  </Step>
+  <Step title="Paste into Duvefy">
+    Paste the signing secret into **Webhook Secret** in **Settings → Payment** and save.
+  </Step>
+</Steps>
+
+---
+
+## Using Stripe in topics
+
+Once configured, use the `stripe_checkout` tool in any topic:
+
+```
+Ask the visitor how much they'd like to donate.
+Then create a Stripe Checkout session for that amount
+and share the payment link with them.
+```
+
+The agent handles the rest — creating the session and returning the URL.
+
+---
+
+## After payment
+
+When Stripe confirms a successful payment:
+1. Duvefy receives the webhook event
+2. The topic resumes automatically from where it paused
+3. Any remaining steps (e.g., creating a CRM record) execute
+4. The visitor sees a confirmation message in the chat
+
+---
+
+## Test mode vs. live mode
+
+Use a `sk_test_...` key and test webhook during development. Switch to `sk_live_...` keys when you're ready to process real payments. Remember to update the webhook endpoint URL and secret in Stripe when switching environments.
+
+<Warning>
+  Never share your Stripe secret key. Once saved in Duvefy, it is encrypted and only the last 6 characters are shown for identification. To rotate the key, enter a new value.
+</Warning>

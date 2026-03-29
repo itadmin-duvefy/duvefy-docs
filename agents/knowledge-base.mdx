@@ -1,0 +1,96 @@
+---
+title: "Knowledge Base"
+description: "Feed your agent information so it can answer visitor questions accurately."
+---
+
+## Overview
+
+Every agent has a knowledge base — a collection of content the AI can draw on when answering questions. The more relevant information you provide, the better the agent performs.
+
+There are five ways to add content to an agent's knowledge base:
+
+---
+
+## Free text
+
+Paste any text directly into the **Text** field. This is the simplest option for short content like:
+- A company overview paragraph
+- A list of FAQs
+- Policy summaries
+
+---
+
+## URLs
+
+Enter one or more web page URLs (comma-separated). Duvefy fetches each page, extracts the text content, and stores it as part of the knowledge base.
+
+**Example:**
+```
+https://example.org/about, https://example.org/programs
+```
+
+<Tip>
+  Use URLs for content that changes regularly — you can re-sync them any time from the knowledge base panel to pull in the latest version.
+</Tip>
+
+---
+
+## PDF upload
+
+Upload PDF documents. Duvefy extracts the text automatically and adds it to the knowledge base. Useful for:
+- Annual reports
+- Program brochures
+- Policy documents
+
+Supported format: `.pdf`. The file must contain extractable text (not a scanned image).
+
+---
+
+## Sitemap crawl
+
+Provide a `sitemap.xml` URL to automatically discover and process every page on your website.
+
+<Steps>
+  <Step title="Enter your sitemap URL">
+    Paste the URL of your sitemap (e.g., `https://example.org/sitemap.xml`).
+  </Step>
+  <Step title="Preview pages">
+    Click **Preview** to see a list of discovered URLs before processing.
+  </Step>
+  <Step title="Sync">
+    Click **Sync Sitemap** to fetch and store the content from all discovered pages.
+  </Step>
+</Steps>
+
+<Info>
+  Sitemap crawl uses the Jina AI reader service. By default, the free tier (20 requests/minute) is used. For large sites, you can add your own Jina AI API key under **Settings → Knowledge Base** to use the paid tier with higher rate limits.
+</Info>
+
+---
+
+## Organization knowledge base
+
+Each agent has a toggle: **Include organization knowledge base**. When enabled, the agent also draws on the organization-level KB — shared content like company overview, policies, and global FAQs.
+
+Manage the organization KB at **Settings → Knowledge Base**.
+
+---
+
+## Re-syncing content
+
+URL and sitemap content can become stale as your website changes. To refresh:
+1. Open the agent's **Knowledge Base** tab
+2. Click **Re-sync URLs** or **Re-sync Sitemap**
+
+This refetches all pages and updates the stored content.
+
+---
+
+## Agent-level vs. org-level KB
+
+| Level | Managed in | Scope |
+|-------|-----------|-------|
+| **Agent KB** | Agent edit page → Knowledge Base tab | Applies only to this agent |
+| **Org KB** | Settings → Knowledge Base | Shared across all agents that have "Include org KB" enabled |
+
+Use the org KB for content that should be consistent everywhere (company info, global policies). Use the agent KB for content specific to that agent's purpose.

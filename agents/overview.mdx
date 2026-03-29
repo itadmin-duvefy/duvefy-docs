@@ -1,0 +1,70 @@
+---
+title: "Agents Overview"
+description: "An agent is an AI assistant embedded on your website that engages visitors in conversation."
+---
+
+## What is an agent?
+
+An agent is a fully configured AI assistant that lives inside a chat widget on your website. Visitors can type questions, and the agent responds using its knowledge base. When a conversation matches a defined workflow (topic), the agent can take actions — like asking follow-up questions, creating a CRM record, or initiating a payment.
+
+---
+
+## Agent types
+
+Duvefy currently supports two agent types:
+
+<CardGroup cols={2}>
+  <Card title="Donation Agent" icon="heart">
+    Designed for nonprofits and charities. Engages visitors, answers questions about your mission, and processes one-time or recurring donations via Stripe.
+  </Card>
+  <Card title="Sales Agent" icon="briefcase">
+    Designed for sales-led teams. Qualifies leads, collects contact information, and creates CRM opportunities.
+  </Card>
+</CardGroup>
+
+The agent type affects how the AI frames its behavior and what it prioritizes in conversations.
+
+---
+
+## What makes up an agent?
+
+<CardGroup cols={2}>
+  <Card title="Basic Info" icon="circle-info" href="/agents/create-configure">
+    Name, mission statement, type, and active/inactive toggle.
+  </Card>
+  <Card title="Knowledge Base" icon="book" href="/agents/knowledge-base">
+    Text, URLs, PDFs, and sitemaps that the agent uses to answer questions.
+  </Card>
+  <Card title="Widget Styling" icon="palette" href="/agents/widget-styling">
+    Colors, launcher icon, and corner position.
+  </Card>
+  <Card title="Topics" icon="bolt" href="/topics/overview">
+    Workflows triggered during conversation (e.g., process payment, create lead).
+  </Card>
+  <Card title="Embed Script" icon="code" href="/agents/embed">
+    A single `<script>` tag to paste into your website.
+  </Card>
+  <Card title="Footer Links" icon="link">
+    Optional key-value URL pairs shown in the widget footer.
+  </Card>
+</CardGroup>
+
+---
+
+## Multiple agents
+
+You can create multiple agents within one organization (subject to your plan limit). Each agent can have a completely different knowledge base, style, and set of workflows. Use cases:
+- Different agents per department (Fundraising, Events, General Enquiries)
+- Different agents per product or landing page
+- A/B testing different agent personalities
+
+---
+
+## Active vs. inactive
+
+Each agent has an **Active** toggle. When inactive:
+- The widget still loads on your website
+- Visitors see a "chat unavailable" state
+- No messages are processed or counted against your quota
+
+This is useful for seasonal campaigns or testing.

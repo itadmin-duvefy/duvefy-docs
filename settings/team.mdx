@@ -1,0 +1,94 @@
+---
+title: "Team Management"
+description: "Invite team members, assign roles, and manage access to your organization."
+---
+
+## Overview
+
+Manage your team at **Settings → Team**. Here you can see all current members, invite new ones, change roles, and remove people who no longer need access.
+
+---
+
+## Inviting a team member
+
+<Steps>
+  <Step title="Go to Settings → Team">
+    Click **Settings** in the sidebar, then **Team**.
+  </Step>
+  <Step title="Click Invite Member">
+    Click the **Invite Member** button.
+  </Step>
+  <Step title="Enter their email and role">
+    Enter the team member's email address and select a role: **Admin** or **Member**.
+  </Step>
+  <Step title="Send the invitation">
+    Click **Send Invite**. An email is sent with a one-time link to set their password.
+  </Step>
+</Steps>
+
+When the invited person clicks the link:
+1. They are taken to `/accept-invite`
+2. They set a password
+3. They are immediately added to the organization and can sign in
+
+---
+
+## Who can invite whom
+
+| Your role | Can invite |
+|-----------|-----------|
+| **Owner** | Admins and Members |
+| **Admin** | Members only |
+| **Member** | Cannot invite |
+
+---
+
+## Changing a member's role
+
+Only owners can change roles.
+
+<Steps>
+  <Step title="Find the member">
+    In the team list, locate the member whose role you want to change.
+  </Step>
+  <Step title="Change the role">
+    Click the role dropdown next to their name and select the new role.
+  </Step>
+  <Step title="Confirm">
+    Confirm the change. It takes effect immediately.
+  </Step>
+</Steps>
+
+---
+
+## Removing a team member
+
+Owners and admins can remove members. Owners can also remove admins.
+
+<Steps>
+  <Step title="Find the member">
+    Locate the member in the team list.
+  </Step>
+  <Step title="Click Remove">
+    Click the **Remove** button next to their name.
+  </Step>
+  <Step title="Confirm">
+    Confirm the removal. The user loses access immediately.
+  </Step>
+</Steps>
+
+<Note>
+  Removing a team member does not delete their Duvefy account — it only removes them from your organization.
+</Note>
+
+---
+
+## Resending an invitation
+
+If a team member hasn't received or has lost their invite email, you can request a resend. Contact [support@duvefy.com](mailto:support@duvefy.com) if you need assistance resending invitations.
+
+---
+
+## Security note
+
+Every invitation, role change, and removal is recorded in the **audit log** (Settings → Audit Logs), giving you a complete history of team access changes.

@@ -1,0 +1,67 @@
+---
+title: "Audit Logs"
+description: "A complete forensic trail of sensitive admin operations in your organization."
+---
+
+## Overview
+
+The audit log records every sensitive operation performed in your organization — who did it, when, and what changed. It provides a complete forensic trail for compliance, security reviews, and troubleshooting.
+
+Access audit logs at **Settings → Audit Logs**.
+
+---
+
+## What gets logged
+
+| Operation | When it's logged |
+|-----------|-----------------|
+| Team member invited | An invitation email is sent |
+| Team member removed | A member is removed from the org |
+| Team member role changed | A member's role is updated |
+| LLM key rotated | A new BYOK API key is saved |
+| Payment settings changed | Stripe keys or config are updated |
+| CRM connected | A CRM integration is authorized |
+| CRM disconnected | A CRM integration is removed |
+| SMTP settings changed | SMTP credentials are saved |
+| Knowledge base updated | Org KB content is modified |
+| Agent created | A new agent is added |
+| Agent updated | An agent's config is changed |
+
+---
+
+## Reading the audit log
+
+Each entry shows:
+- **Timestamp** — When the action occurred (UTC)
+- **Action** — What operation was performed (color-coded by category)
+- **Actor** — Who performed the action (team member email)
+- **Target** — What was affected (e.g., a user ID, integration type)
+
+---
+
+## Access by role
+
+| Role | Access |
+|------|--------|
+| **Owner** | Full access to org audit log |
+| **Admin** | Full access to org audit log |
+| **Member** | No access |
+
+---
+
+## Action logs vs. audit logs
+
+Duvefy has two separate logs:
+
+| Log | Purpose | Location |
+|-----|---------|---------|
+| **Audit Log** | Sensitive admin operations (who changed what in the settings) | Settings → Audit Logs |
+| **Action Log** | Topic execution history (what the AI did during conversations) | Settings → Logs |
+
+Use the audit log for security reviews and compliance. Use the action log for debugging topic execution.
+
+---
+
+## Append-only
+
+Audit log entries **cannot be deleted or modified** — not even by admins. This ensures the integrity of the forensic trail. The log is append-only by design.

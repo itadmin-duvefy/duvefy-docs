@@ -1,0 +1,82 @@
+---
+title: "Salesforce"
+description: "Connect your Salesforce org to create, update, and query records from agent topics."
+---
+
+## What Salesforce enables
+
+When connected, your agents can:
+- Create and update any standard Salesforce object (Lead, Contact, Opportunity, Case, etc.)
+- Query records to personalize conversations
+- Trigger Salesforce Autolaunched Flows (Scale+)
+- Call Apex REST class methods (Scale+)
+- Send emails via the Salesforce `SingleEmailMessage` API (Scale+)
+
+---
+
+## Connecting Salesforce
+
+<Steps>
+  <Step title="Go to Settings → Integrations">
+    In the sidebar, click **Settings**, then **Integrations**.
+  </Step>
+  <Step title="Click Connect Salesforce">
+    Click the **Connect Salesforce** button on the Salesforce card.
+  </Step>
+  <Step title="Authorize in Salesforce">
+    You'll be redirected to Salesforce's OAuth login page. Sign in with a Salesforce user that has API access.
+  </Step>
+  <Step title="Grant permissions">
+    Review the requested permissions and click **Allow**.
+  </Step>
+  <Step title="Return to Duvefy">
+    You'll be redirected back to the Integrations page. The Salesforce card will show a green connected status.
+  </Step>
+</Steps>
+
+---
+
+## Required Salesforce permissions
+
+The Salesforce user used to connect must have:
+- API Enabled permission
+- Read/Create/Edit access to the objects your topics will interact with (e.g., Lead, Contact, Opportunity)
+- For Flows: permission to invoke the specific Autolaunched Flows
+- For Apex: permission to access the Apex REST classes
+
+<Tip>
+  Create a dedicated integration user in Salesforce with only the permissions needed. Avoid using a personal admin account.
+</Tip>
+
+---
+
+## What topics can do with Salesforce
+
+| Operation | Topic instruction example |
+|-----------|--------------------------|
+| Create a Lead | "Create a new Lead in Salesforce with the visitor's name and email." |
+| Update a Contact | "Update the Contact's phone number in Salesforce." |
+| Query records | "Search Salesforce for a Contact with the visitor's email." |
+| Trigger a Flow | "Use the **Create Donation Record** action to run the Flow." |
+| Call an Apex class | "Use the **Get Account Balance** action to retrieve the donor's history." |
+| Send an email | "Use the **Send Welcome Email** action to send a confirmation." |
+
+---
+
+## Disconnecting Salesforce
+
+<Steps>
+  <Step title="Go to Settings → Integrations">
+    Click **Settings** → **Integrations**.
+  </Step>
+  <Step title="Click Disconnect">
+    Click **Disconnect** on the Salesforce card.
+  </Step>
+  <Step title="Confirm">
+    A red confirmation panel appears inline. Click **Yes, disconnect** to confirm.
+  </Step>
+</Steps>
+
+<Warning>
+  Disconnecting Salesforce removes the stored access and refresh tokens. Any topics that rely on Salesforce will fail until you reconnect. You will need to re-authorize after reconnecting.
+</Warning>

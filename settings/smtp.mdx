@@ -1,0 +1,55 @@
+---
+title: "SMTP Settings"
+description: "Configure a custom SMTP server to enable the Send Email action in your topics."
+---
+
+## Overview
+
+SMTP settings allow your topics to send outbound emails using your organization's own email server. This is required when using the **Send Email** dynamic action with the SMTP provider option.
+
+<Note>
+  This is separate from the system invitation/password-reset emails, which are handled by Duvefy's platform email (Resend). SMTP settings here only affect emails sent by topic actions.
+</Note>
+
+Configure at **Settings → SMTP**.
+
+---
+
+## Required fields
+
+| Field | Description |
+|-------|-------------|
+| **Host** | Your SMTP server hostname (e.g., `smtp.sendgrid.net`) |
+| **Port** | SMTP port (typically `587` for TLS, `465` for SSL) |
+| **Username** | SMTP authentication username |
+| **Password** | SMTP authentication password (encrypted at rest) |
+| **From Email** | The "From" email address for outbound emails (e.g., `noreply@yourorg.com`) |
+| **From Name** | The display name shown in the From field (e.g., `Your Organization`) |
+| **Use TLS** | Toggle to enable TLS/STARTTLS (recommended for port 587) |
+
+---
+
+## Saving and security
+
+Click **Save** after filling in the fields. Your SMTP password is encrypted using AES-256-GCM before being stored. It is never shown in plaintext after saving.
+
+---
+
+## Testing your SMTP settings
+
+After saving, create a test topic with a **Send Email** action (SMTP provider) and trigger it from a conversation. If the email is not received:
+- Check the **Settings → Logs** page for action errors
+- Verify the SMTP credentials are correct in your email provider's dashboard
+- Ensure your SMTP provider allows connections from external servers
+
+---
+
+## Common SMTP providers
+
+| Provider | Host | Port |
+|----------|------|------|
+| SendGrid | `smtp.sendgrid.net` | 587 |
+| Mailgun | `smtp.mailgun.org` | 587 |
+| Amazon SES | `email-smtp.<region>.amazonaws.com` | 587 |
+| Postmark | `smtp.postmarkapp.com` | 587 |
+| Gmail | `smtp.gmail.com` | 587 |
