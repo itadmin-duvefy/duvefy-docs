@@ -24,6 +24,12 @@ The agent:
 3. Calls `stripe_checkout` with the amount
 4. Returns the Stripe URL to the visitor via `end_topic`
 
+<Info>
+  📸 **Screenshot needed** — `images/instructions-example.png`
+
+  A topic editor showing the "Process Donation" topic with the Instructions textarea filled in with the example above. Also show the live widget conversation beside it (or below) with the agent executing that workflow — asking for the amount.
+</Info>
+
 ---
 
 ## Best practices
@@ -44,6 +50,12 @@ If you've configured a dynamic action (Scale+), reference it by its **exact acti
 
 **Example:**
 > Use the **Create Salesforce Opportunity** action to create a new opportunity with the lead's name and donation amount.
+
+<Info>
+  📸 **Screenshot needed** — `images/instructions-action-reference.png`
+
+  Side-by-side view: on the left, a topic's Actions list showing an action named "Create Salesforce Opportunity". On the right, the Instructions textarea showing the text referencing that exact action name — with the action name highlighted in both panels.
+</Info>
 
 ---
 
@@ -115,3 +127,9 @@ After saving a topic:
 3. Confirm each step executes as expected
 
 If the agent skips a step or behaves unexpectedly, try making your instructions more explicit.
+
+<Info>
+  📸 **Screenshot needed** — `images/instructions-testing.png`
+
+  The chat widget open on the website showing a complete topic execution — the agent asking a question mid-topic (e.g., "How much would you like to donate?") and the visitor's response. Shows the full conversation flow.
+</Info>

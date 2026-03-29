@@ -9,6 +9,12 @@ Every agent has a knowledge base — a collection of content the AI can draw on 
 
 There are five ways to add content to an agent's knowledge base:
 
+<Info>
+  📸 **Screenshot needed** — `images/kb-overview.png`
+
+  The Knowledge Base tab on the agent edit page, showing all sections: Text input, URLs field, PDF upload, Sitemap crawl, and the "Include org KB" toggle. No content entered yet — shows the empty state.
+</Info>
+
 ---
 
 ## Free text
@@ -17,6 +23,12 @@ Paste any text directly into the **Text** field. This is the simplest option for
 - A company overview paragraph
 - A list of FAQs
 - Policy summaries
+
+<Info>
+  📸 **Screenshot needed** — `images/kb-free-text.png`
+
+  The free text area with a sample paragraph of organization content entered. Highlight the text area and show a few lines of example content.
+</Info>
 
 ---
 
@@ -28,6 +40,12 @@ Enter one or more web page URLs (comma-separated). Duvefy fetches each page, ext
 ```
 https://example.org/about, https://example.org/programs
 ```
+
+<Info>
+  📸 **Screenshot needed** — `images/kb-urls.png`
+
+  The URLs field with two or three comma-separated URLs entered. Show the **Re-sync URLs** button next to the field.
+</Info>
 
 <Tip>
   Use URLs for content that changes regularly — you can re-sync them any time from the knowledge base panel to pull in the latest version.
@@ -44,6 +62,12 @@ Upload PDF documents. Duvefy extracts the text automatically and adds it to the 
 
 Supported format: `.pdf`. The file must contain extractable text (not a scanned image).
 
+<Info>
+  📸 **Screenshot needed** — `images/kb-pdf.png`
+
+  The PDF upload area showing either the upload button/drop zone in its empty state, or a successfully uploaded PDF listed below with its filename and a remove button.
+</Info>
+
 ---
 
 ## Sitemap crawl
@@ -53,12 +77,30 @@ Provide a `sitemap.xml` URL to automatically discover and process every page on 
 <Steps>
   <Step title="Enter your sitemap URL">
     Paste the URL of your sitemap (e.g., `https://example.org/sitemap.xml`).
+
+    <Info>
+      📸 **Screenshot needed** — `images/kb-sitemap-url.png`
+
+      The Sitemap section with a sitemap URL entered in the input field and the **Preview** button visible.
+    </Info>
   </Step>
   <Step title="Preview pages">
     Click **Preview** to see a list of discovered URLs before processing.
+
+    <Info>
+      📸 **Screenshot needed** — `images/kb-sitemap-preview.png`
+
+      The sitemap preview panel showing a list of discovered URLs (e.g., 12 pages found), with checkboxes or a scrollable list. Highlight the page count badge.
+    </Info>
   </Step>
   <Step title="Sync">
     Click **Sync Sitemap** to fetch and store the content from all discovered pages.
+
+    <Info>
+      📸 **Screenshot needed** — `images/kb-sitemap-synced.png`
+
+      The sitemap section after a successful sync, showing a green success indicator or a "Last synced" timestamp. Highlight the sync status.
+    </Info>
   </Step>
 </Steps>
 
@@ -73,6 +115,12 @@ Provide a `sitemap.xml` URL to automatically discover and process every page on 
 Each agent has a toggle: **Include organization knowledge base**. When enabled, the agent also draws on the organization-level KB — shared content like company overview, policies, and global FAQs.
 
 Manage the organization KB at **Settings → Knowledge Base**.
+
+<Info>
+  📸 **Screenshot needed** — `images/kb-org-toggle.png`
+
+  The "Include organization knowledge base" toggle at the bottom of the Knowledge Base tab, shown in the ON position. Highlight the toggle.
+</Info>
 
 ---
 

@@ -11,6 +11,12 @@ Dynamic actions extend what topics can do beyond the built-in tools. You configu
   Dynamic actions require a **Scale or Enterprise** subscription. Organizations on Starter or Growth see an upgrade prompt when attempting to create actions.
 </Info>
 
+<Info>
+  📸 **Screenshot needed** — `images/actions-overview.png`
+
+  The Actions tab inside a topic, showing a list of 2–3 configured actions with their names, types (Flow, HTTP, Email), and enabled toggles. Highlight the **Add Action** button.
+</Info>
+
 ---
 
 ## Action types
@@ -29,6 +35,12 @@ Invokes a Salesforce **Autolaunched Flow** by its API name.
 **In instructions:**
 > Use the **Create Donation Record** action to record the donation in Salesforce.
 
+<Info>
+  📸 **Screenshot needed** — `images/actions-salesforce-flow.png`
+
+  The Salesforce Flow action config panel showing the Flow API name field filled in, and the input variables table with 2–3 rows (e.g., name, email, amount mapped to flow variables).
+</Info>
+
 ---
 
 ### Apex Class
@@ -45,6 +57,12 @@ Calls a method on a **Salesforce Apex REST** class.
 
 **In instructions:**
 > Use the **Get Donor History** action to retrieve the visitor's past donations before responding.
+
+<Info>
+  📸 **Screenshot needed** — `images/actions-apex.png`
+
+  The Apex Class action config panel showing the class name, method name, HTTP method selector, and at least one input/output variable row configured.
+</Info>
 
 ---
 
@@ -63,6 +81,12 @@ Calls any external HTTP endpoint. Use this to integrate with systems that don't 
 **In instructions:**
 > Use the **Register Event Signup** action to send the visitor's details to our events platform.
 
+<Info>
+  📸 **Screenshot needed** — `images/actions-http.png`
+
+  The HTTP Request action config panel showing the URL field, method selector set to POST, an auth header entered, and the Key-Value params table with 2–3 rows. Highlight the body mode toggle (Key-Value vs Raw JSON).
+</Info>
+
 ---
 
 ### Send Email
@@ -78,6 +102,12 @@ Sends an email during topic execution. Supports two provider options:
 - Sends via your organization's SMTP server (configured at Settings → Email / SMTP)
 - Supports free-form subject and body
 
+<Info>
+  📸 **Screenshot needed** — `images/actions-send-email.png`
+
+  The Send Email action config panel with the provider radio buttons (Salesforce / SMTP) visible. Show the SMTP option selected with the subject and body fields filled in.
+</Info>
+
 <Note>
   Send Email via Salesforce requires a connected Salesforce integration. SMTP requires SMTP settings configured at Settings → SMTP. If neither is configured, a warning banner appears in the action config.
 </Note>
@@ -92,6 +122,12 @@ When you clone a library action into a topic:
 - The clone is independent — editing it doesn't affect the original
 - Each topic can have its own version of the action with different variable mappings
 
+<Info>
+  📸 **Screenshot needed** — `images/actions-library.png`
+
+  The Agent Action Library panel showing 2–3 global actions listed, with the **Clone into topic** button visible next to each one. Highlight the "Global" badge on each action.
+</Info>
+
 ---
 
 ## Creating an action
@@ -99,15 +135,39 @@ When you clone a library action into a topic:
 <Steps>
   <Step title="Open the agent topic">
     Navigate to the agent → Topics tab → select or create a topic.
+
+    <Info>
+      📸 **Screenshot needed** — `images/actions-create-step1.png`
+
+      The Topics tab with a topic selected/open, showing the tab bar inside the topic editor with the **Actions** tab visible.
+    </Info>
   </Step>
   <Step title="Open the Actions panel">
     Click the **Actions** tab inside the topic.
+
+    <Info>
+      📸 **Screenshot needed** — `images/actions-create-step2.png`
+
+      The Actions tab open inside a topic, showing an empty state with the **Add Action** button prominently displayed.
+    </Info>
   </Step>
   <Step title="Add action">
     Click **Add Action**, choose the action type, and fill in the configuration.
+
+    <Info>
+      📸 **Screenshot needed** — `images/actions-create-step3.png`
+
+      The action type selector showing the four options: Salesforce Flow, Apex Class, HTTP Request, Send Email. Highlight one option being selected.
+    </Info>
   </Step>
   <Step title="Save">
     Click **Save**. The action is now available to the topic's AI execution loop.
+
+    <Info>
+      📸 **Screenshot needed** — `images/actions-create-step4.png`
+
+      The Actions tab after saving, showing the newly created action in the list with its name, type badge, and enabled toggle ON.
+    </Info>
   </Step>
 </Steps>
 

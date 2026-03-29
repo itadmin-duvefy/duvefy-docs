@@ -15,6 +15,12 @@ Stripe integration is available on all plans.
 
 Go to **Settings → Payment** to configure your Stripe account.
 
+<Info>
+  📸 **Screenshot needed** — `images/stripe-settings-page.png`
+
+  The full Payment settings page showing all fields: Stripe Secret Key (masked), Webhook Secret (masked), Minimum Amount, Currency, Success URL, Cancel URL, Error URL, and Recurring Interval. Highlight the page header and the Save button.
+</Info>
+
 ### Required fields
 
 | Field | Description |
@@ -42,6 +48,12 @@ Duvefy needs Stripe to notify it when a payment completes, so it can resume the 
 <Steps>
   <Step title="Open Stripe Dashboard">
     Go to your Stripe Dashboard → **Developers** → **Webhooks**.
+
+    <Info>
+      📸 **Screenshot needed** — `images/stripe-webhook-step1.png`
+
+      The Stripe Dashboard Webhooks page showing the list of webhook endpoints (possibly empty) and the **Add endpoint** button highlighted.
+    </Info>
   </Step>
   <Step title="Add endpoint">
     Click **Add endpoint**. Enter the URL:
@@ -49,15 +61,39 @@ Duvefy needs Stripe to notify it when a payment completes, so it can resume the 
     https://app.duvefy.com/api/stripe/webhook/YOUR_ORG_ID
     ```
     Find your Org ID on the **Settings → Payment** page or in the embed script URL.
+
+    <Info>
+      📸 **Screenshot needed** — `images/stripe-webhook-step2.png`
+
+      The Stripe "Add endpoint" form with the Duvefy webhook URL entered in the Endpoint URL field. Highlight the URL field.
+    </Info>
   </Step>
   <Step title="Select event">
     Select the event: `checkout.session.completed`.
+
+    <Info>
+      📸 **Screenshot needed** — `images/stripe-webhook-step3.png`
+
+      The Stripe event selector with `checkout.session.completed` checked/selected. Highlight that specific event in the list.
+    </Info>
   </Step>
   <Step title="Copy the signing secret">
     After creating the webhook, copy the **Signing secret** (`whsec_...`).
+
+    <Info>
+      📸 **Screenshot needed** — `images/stripe-webhook-step4.png`
+
+      The Stripe webhook detail page after creation, showing the Signing secret field with a "Reveal" or "Copy" button. Highlight the Signing secret section.
+    </Info>
   </Step>
   <Step title="Paste into Duvefy">
     Paste the signing secret into **Webhook Secret** in **Settings → Payment** and save.
+
+    <Info>
+      📸 **Screenshot needed** — `images/stripe-webhook-step5.png`
+
+      The Duvefy Payment settings page with the Webhook Secret field highlighted, showing the `whsec_...` value entered (masked, showing only last 6 chars after save).
+    </Info>
   </Step>
 </Steps>
 
@@ -74,6 +110,12 @@ and share the payment link with them.
 ```
 
 The agent handles the rest — creating the session and returning the URL.
+
+<Info>
+  📸 **Screenshot needed** — `images/stripe-topic-in-action.png`
+
+  The live chat widget showing the agent mid-topic — after asking the visitor for a donation amount and returning a Stripe Checkout link. The link should be visible in the conversation.
+</Info>
 
 ---
 

@@ -9,6 +9,12 @@ The audit log records every sensitive operation performed in your organization �
 
 Access audit logs at **Settings → Audit Logs**.
 
+<Info>
+  📸 **Screenshot needed** — `images/audit-logs-overview.png`
+
+  The full Audit Logs page showing the log table with multiple entries. Each row should show a timestamp, color-coded action badge (e.g., "team_member_invited" in blue, "crm_connected" in green), actor email, and target. Highlight the filter controls at the top (if any).
+</Info>
+
 ---
 
 ## What gets logged
@@ -37,6 +43,12 @@ Each entry shows:
 - **Actor** — Who performed the action (team member email)
 - **Target** — What was affected (e.g., a user ID, integration type)
 
+<Info>
+  📸 **Screenshot needed** — `images/audit-logs-detail.png`
+
+  A close-up of 3–4 audit log rows, clearly showing the four columns: Timestamp, Action (with color-coded badge), Actor (email), and Target. Use a mix of action types to show the color coding — e.g., one team action, one CRM action, one settings action.
+</Info>
+
 ---
 
 ## Access by role
@@ -59,6 +71,12 @@ Duvefy has two separate logs:
 | **Action Log** | Topic execution history (what the AI did during conversations) | Settings → Logs |
 
 Use the audit log for security reviews and compliance. Use the action log for debugging topic execution.
+
+<Info>
+  📸 **Screenshot needed** — `images/audit-logs-action-log.png`
+
+  The Action Logs page (Settings → Logs), which is distinct from the Audit Log. Show the action log table with entries showing topic actions (e.g., "create_record", "stripe_checkout"), their status (success/error), and timestamps. This helps users distinguish the two log types.
+</Info>
 
 ---
 
