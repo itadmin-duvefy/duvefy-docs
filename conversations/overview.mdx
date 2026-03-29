@@ -1,45 +1,73 @@
 ---
 title: "Conversations"
-description: "View and understand the full history of visitor interactions with your agents."
+description: "How Duvefy handles conversation transcripts — privacy-first, CRM-synced."
 ---
 
 ## Overview
 
-Every time a visitor sends a message to an agent, a conversation is created. The full message history is stored and viewable in the dashboard by all team members.
-
-Access conversations from **Conversations** in the left sidebar.
+Every time a visitor interacts with an agent, a conversation is created. Duvefy takes a **privacy-first approach** to conversation storage: transcripts are never permanently stored in Duvefy's database. Instead, when a conversation ends, the transcript is synced to your connected CRM — then deleted from Duvefy's systems.
 
 ---
 
-## Conversation list
+## How it works
 
-The conversations list shows all interactions across all your agents, sorted by most recent. For each conversation you can see:
-- The agent the visitor was talking to
-- The date and time the conversation started
-- A preview of the first message
+1. **During the conversation** — messages are held temporarily to provide context to the AI agent.
+2. **When the conversation ends** — the transcript is assembled and synced to your CRM as a Note on the relevant record.
+3. **After sync** — messages are permanently deleted from Duvefy's database.
 
-Click any conversation to view the full message history.
-
-<Info>
-  📸 **Screenshot needed** — `images/conversations-list.png`
-
-  The Conversations page showing a list of 5–6 conversations. Each row should show the agent name, date/time, and a preview of the visitor's first message. Highlight one row as selected/hovered.
-</Info>
+If the sync fails (e.g., your CRM token expired), the transcript is encrypted and queued for up to 48 hours while automatic retries run. After 48 hours, the transcript is discarded.
 
 ---
 
-## Conversation detail
+## Where transcripts are stored in your CRM
 
-Inside a conversation you can see:
-- The full back-and-forth message history between the visitor and the agent
-- Which topics were triggered (if any)
-- Data collected from the visitor (e.g., name, email, amount)
+| CRM | Object |
+|---|---|
+| **Salesforce** | Note linked to the identified record (Lead, Contact, Opportunity, etc.) |
+| **HubSpot** | Note engagement linked to the identified record (Contact, Deal, Ticket, etc.) |
+| **Zoho** | Note linked to the identified module record (Leads, Contacts, Deals, etc.) |
 
-<Info>
-  📸 **Screenshot needed** — `images/conversations-detail.png`
+The transcript is attached to whichever CRM record was created or looked up during the conversation. If the agent created a Lead, the note lands on that Lead. If it only queried a Contact, the note lands on that Contact.
 
-  A conversation detail view showing a complete exchange between a visitor and the agent. Show a topic being triggered mid-conversation (e.g., the agent asking for a donation amount), the visitor's response, and the agent completing the workflow. Include any collected data visible in a sidebar or panel.
-</Info>
+---
+
+## Anonymous conversations
+
+An anonymous conversation is one where no CRM record was identified — for example, an information-only agent that never interacted with your CRM.
+
+You can configure what happens to these transcripts **per agent** in Agent Settings → Overview:
+
+| Setting | Behavior |
+|---|---|
+| **Discard** (default) | Transcript is not stored anywhere — deleted from Duvefy when the conversation ends. |
+| **Link to catch-all CRM record** | Transcript is attached to a designated CRM record of your choice. |
+
+To use the catch-all option, you'll need to provide:
+- **CRM object type** — the type of record to link to (e.g., `Contact`, `Account`)
+- **CRM record ID** — the specific record in your CRM that will collect these transcripts
+
+<Note>
+  Anonymous behavior is only configurable when a CRM integration is connected to your organization.
+</Note>
+
+---
+
+## No CRM connected
+
+If your organization has no CRM connected, conversation transcripts are **not stored anywhere**. Messages are discarded when the conversation ends.
+
+This is the most privacy-preserving configuration. If you want transcripts to be stored, connect a CRM in **Settings → Integrations**.
+
+---
+
+## Retry and data expiry
+
+If the CRM sync fails (e.g., your OAuth token expired), Duvefy will:
+1. Encrypt the transcript and queue it for retry
+2. Automatically retry every 30 minutes for up to 48 hours
+3. Discard the transcript after 48 hours regardless of sync status
+
+To prevent failed syncs from accumulating, ensure your CRM integration stays connected and tokens are kept valid.
 
 ---
 
@@ -48,24 +76,6 @@ Inside a conversation you can see:
 A conversation is considered **engaged** when at least one topic action completed successfully — for example, a CRM record was created, a payment was initiated, or an email was sent.
 
 Engaged conversation counts are shown on the analytics dashboard.
-
-<Info>
-  📸 **Screenshot needed** — `images/conversations-engaged.png`
-
-  The conversations list with a visual indicator showing which conversations are engaged vs. not engaged — e.g., a badge, icon, or color highlight on rows where a topic action completed successfully.
-</Info>
-
----
-
-## CRM conversations
-
-When a CRM is connected, conversations that involved CRM activity are also visible under **CRM → Conversations** in the sidebar. This view filters for conversations where the agent interacted with your CRM.
-
-<Info>
-  📸 **Screenshot needed** — `images/conversations-crm.png`
-
-  The CRM Conversations view (accessible via the sidebar CRM section) showing conversations that include CRM activity, with relevant CRM action indicators (e.g., "Lead Created", "Contact Updated") shown on each row.
-</Info>
 
 ---
 
@@ -77,10 +87,6 @@ When a CRM is connected, conversations that involved CRM activity are also visib
 | **Admin** | View all conversations |
 | **Member** | View all conversations (read-only) |
 
-All roles can view conversations. No role can delete or modify conversation history from the dashboard.
-
----
-
-## Data retention
-
-Conversation history is stored indefinitely. There is currently no automatic purge or expiry.
+<Note>
+  Because transcripts are synced to your CRM and deleted from Duvefy, the Conversations dashboard view will not show full message history for completed conversations. Full transcripts are available in your CRM.
+</Note>

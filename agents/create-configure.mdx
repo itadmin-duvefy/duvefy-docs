@@ -106,3 +106,23 @@ Click **Save Changes** at the bottom of the page. Changes to the agent configura
 <Note>
   Widget styling changes (colors, icon, position) are saved separately in the **Styling** section and update the embed script immediately.
 </Note>
+
+---
+
+## Anonymous conversation behavior
+
+When a conversation ends without any CRM record being identified (e.g., a visitor closed the chat before providing their details, or the agent is purely informational), you can control what happens to the transcript.
+
+This setting is available in the **Overview** tab of agent settings, and is only visible when a CRM is connected to your organization.
+
+| Option | Behavior |
+|---|---|
+| **Discard** (default) | The transcript is not stored anywhere. Deleted from Duvefy when the conversation ends. |
+| **Link to catch-all CRM record** | The transcript is attached to a designated CRM record you specify. |
+
+To use the catch-all option:
+1. Select **Link to catch-all CRM record**
+2. Enter the **CRM object type** (e.g., `Contact`, `Account`, `Leads`)
+3. Enter the **CRM record ID** of the specific record to use as the collection point
+
+We recommend creating a dedicated placeholder record in your CRM (e.g., "Anonymous Conversations") rather than using a real contact or account, as it will accumulate many notes over time.
