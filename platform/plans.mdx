@@ -5,14 +5,14 @@ description: "Compare Duvefy plans and understand what's included at each tier."
 
 ## Plan comparison
 
-| Feature | Starter | Growth | Scale | Enterprise |
-|---------|---------|--------|-------|------------|
+| Feature | Agent Starter | Agent Builder | Agent Operator | Enterprise |
+|---------|---------------|---------------|----------------|------------|
 | **Agents** | 1 | 3 | 10 | Unlimited |
 | **Messages / month** | 1,000 | 5,000 | 25,000 | Unlimited |
 | **Admin users** | 1 | 3 | 10 | Unlimited |
-| **CRM integrations** | — | Salesforce, HubSpot, Zoho | Salesforce, HubSpot, Zoho | Salesforce, HubSpot, Zoho |
-| **Topic Actions** | — | — | Yes | Yes |
-| **Bring Your Own Key (BYOK)** | — | — | Yes | Yes |
+| **Native CRM automation** | — | Salesforce, HubSpot, Zoho | Salesforce, HubSpot, Zoho | Salesforce, HubSpot, Zoho |
+| **Agent Actions** | — | — | Yes | Yes |
+| **Use your own LLM key (BYOK)** | — | — | Yes | Yes |
 | **Audit Logs** | — | — | Yes | Yes |
 | **Overage behavior** | Blocked | Blocked | Billed | Negotiated |
 
@@ -48,16 +48,16 @@ Duvefy's operations team can apply custom message and agent limits to individual
 
 ## Plan features explained
 
-### CRM integrations (Growth+)
-Connect Salesforce, HubSpot, or Zoho to allow topics to create, update, and query CRM records.
+### Native CRM automation (Agent Builder+)
+Connect Salesforce, HubSpot, or Zoho to allow topics to create, update, and query CRM records — and trigger automated workflows directly from agent conversations.
 
-### Topic Actions (Scale+)
+### Agent Actions (Agent Operator+)
 Unlock configurable actions inside topics: Salesforce Flow, Apex Class, HTTP requests, and Send Email. Actions are the building blocks for sophisticated automated workflows.
 
-### Bring Your Own Key — BYOK (Scale+)
+### Use your own LLM key — BYOK (Agent Operator+)
 Use your own LLM API key (OpenAI, Anthropic, or Google) instead of Duvefy's default. Useful for cost control or model preference. See [LLM Settings](/settings/llm).
 
-### Audit Logs (Scale+)
+### Audit Logs (Agent Operator+)
 A forensic trail of sensitive admin operations (team changes, CRM connections, key rotations, etc.) accessible to org owners at **Settings → Audit Logs**. See [Audit Logs](/security/audit-logs).
 
 ---
